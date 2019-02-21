@@ -17,7 +17,8 @@ public class Main {
 			// 문제의 결과화면에 맞게 출력하는 계산기 나머지 코드를 아래에 완성 하십시오.
 			// 주어진 코드는 수정하지 않습니다.
 
-		
+			Arithmetic ar = getInstance(arith);
+			System.out.println(ar.calculate(num1, num2));
 		
 		}
 	}
@@ -25,7 +26,48 @@ public class Main {
 	public static Arithmetic getInstance(String arith) {
 		
 		// 메소드 구현을 완성 하십시오.
-		
-		return null;
+		if(arith.equals("+")) {
+			return new Add();
+		}
+		else if(arith.equals("-")) {
+			return new Sub();
+		}
+		else if(arith.equals("*")) {
+			return new Mul();
+		}
+		else if(arith.equals("/")) {
+			return new Div();
+		}
+		else {
+			return null;
+		}
+	}
+}
+class Add implements Arithmetic{
+
+	public int calculate(int a, int b) {
+
+		return a+b;
+	}
+}
+class Sub implements Arithmetic{
+
+	public int calculate(int a, int b) {
+
+		return a-b;
+	}
+}
+class Mul implements Arithmetic{
+
+	public int calculate(int a, int b) {
+
+		return a*b;
+	}
+}
+class Div implements Arithmetic{
+
+	public int calculate(int a, int b) {
+
+		return a/b;
 	}
 }
